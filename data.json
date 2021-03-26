@@ -2,49 +2,49 @@
     "data": {
         "projects": [
             {
-                "id": "",
-                "project_name": "",
-                "description": "",
-                "technologies": [""],
+                "id": "0",
+                "project_name": "Random Quote Generator",
+                "description": "A random Quote Generator program that displays a randomly selected quote each time the user clicks a button or every 30 seconds.",
+                "technologies": ["JavaScript", "CSS", "HTML"],
                 "live_link": "",
-                "github_link": "",
-                "image_urls": [""]
+                "github_link": "https://github.com/Bigjames728/techdegree-project-1",
+                "image_urls": ["/images/LPProject1.png", "/images/ExtraProject1.png"]
             },
             {
-                "id": "",
-                "project_name": "",
-                "description": "",
-                "technologies": [""],
+                "id": "1",
+                "project_name": "Data Pagination and Filtering",
+                "description": "Used JavaScript to display several 'pages' of student data that the user can easily navigate and view rather than looking at all students on one giant page.",
+                "technologies": ["JavaScript", "CSS", "HTML"],
                 "live_link": "",
-                "github_link": "",
-                "image_urls": [""]
+                "github_link": "https://github.com/Bigjames728/Data-Pagination-and-Filtering-Project-unit-02",
+                "image_urls": ["/images/LPProject2.png", "/images/ExtraProject2.png"]
             },
             {
-                "id": "",
-                "project_name": "",
-                "description": "",
-                "technologies": [""],
+                "id": "2",
+                "project_name": "Interactive Form",
+                "description": "A form that uses regex to check the correct info and format has been entered as well as logic to show and hide certain options based on users selection and input.",
+                "technologies": ["JavaScript", "CSS", "HTML"],
                 "live_link": "",
-                "github_link": "",
-                "image_urls": [""]
+                "github_link": "https://github.com/Bigjames728/Interactive-Form-Project-Unit-03",
+                "image_urls": ["/images/LPProject3.png", "/images/ExtraProject3.png"]
             },
             {
-                "id": "",
-                "project_name": "",
-                "description": "",
-                "technologies": [""],
+                "id": "3",
+                "project_name": "Game Show App",
+                "description": "A browser-based, word guessing game: 'Phrase Hunter.' A player tries to guess the phrase by selecting individual letters from an onscreen keyboard.",
+                "technologies": ["JavaScript", "CSS", "HTML"],
                 "live_link": "",
-                "github_link": "",
-                "image_urls": [""]
+                "github_link": "https://github.com/Bigjames728/OOP-Game-Show-App",
+                "image_urls": ["/images/LPProject4.png", "/images/ExtraProject4.png"]
             },
             {
-                "id": "",
-                "project_name": "",
-                "description": "",
-                "technologies": [""],
+                "id": "4",
+                "project_name": "Public API Requests",
+                "description": "Created an employee directory by communicating with a third-party API (Application Programming Interface).",
+                "technologies": ["JavaScript", "CSS", "HTML"],
                 "live_link": "",
-                "github_link": "",
-                "image_urls": [""]
+                "github_link": "https://github.com/Bigjames728/Public-API-Request-Unit-5",
+                "image_urls": ["/images/LPProject5.png", "/images/ExtraProject5.png"]
             }
 
         ]
