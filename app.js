@@ -27,9 +27,8 @@ app.use(express.static('public'));
  */
 
 app.get("/", (req, res) => {
+    console.log(data.data.projects);
     res.render("index", { data: "projects" });
-    req.app.locals = data.projects;
-    console.log(data.projects);
 });
 
 app.get("/about", (req, res) => {
