@@ -7,6 +7,7 @@
 const express = require("express");
 const path = require("path");
 const data = require("./data.json");
+const projects = data.data.projects;
 
 /**
  * App Variables
@@ -27,8 +28,7 @@ app.use(express.static('public'));
  */
 
 app.get("/", (req, res) => {
-    console.log(data.data.projects);
-    res.render("index", { data: "projects" });
+    res.render("index", { projects });
 });
 
 app.get("/about", (req, res) => {
