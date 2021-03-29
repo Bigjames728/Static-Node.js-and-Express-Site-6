@@ -27,9 +27,14 @@ app.use(express.static('public'));
  */
 
 app.get("/", (req, res) => {
-    res.render("index", { title: "Home" });
+    res.render("index", { data: "projects" });
     req.app.locals = data.projects;
+    console.log(data.projects);
 });
+
+app.get("/about", (req, res) => {
+    res.render("about");
+})
 
 /**
  * Server Activation
