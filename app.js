@@ -33,7 +33,11 @@ app.get("/", (req, res) => {
 
 app.get("/about", (req, res) => {
     res.render("about");
-})
+});
+
+app.get("/projects/:id", (req, res) => {
+    
+});
 
 /**
  * Server Activation
