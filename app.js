@@ -45,6 +45,25 @@ app.get("/projects/:id", (req, res) => {
 });
 
 /**
+ * Error Handlers
+ */
+
+app.use((req, res, next) => {
+    // const err = new Error("Oh no! This page doesn't seem to exist.");
+    res.status(404).render('page-not-found');
+    // next(err);
+})
+
+app.use((err, req, res, next) => {
+    if (err.status === 404) {
+        res.status(404).render("page-not-found", { err });
+    } else {
+        err.message = err.message || `Oops! It looks like something went wrong on the server.`
+        res.status(err.status || 500).render('error', { err });
+    }
+});
+
+/**
  * Server Activation
  */
 
