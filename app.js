@@ -9,6 +9,7 @@ const path = require("path");
 const data = require("./data.json");
 const projects = data.data.projects;
 
+
 /**
  * App Variables
  */
@@ -37,11 +38,7 @@ app.get("/about", (req, res) => {
 
 app.get("/projects/:id", (req, res) => {
     const project = projects[req.params.id];
-    if (project) {
-        res.render('project', { project });
-    } else {
-        res.sendStatus(404);
-    }
+    res.render('project', { project });
 });
 
 /**
@@ -49,14 +46,18 @@ app.get("/projects/:id", (req, res) => {
  */
 
 app.use((req, res, next) => {
+    console.log("It looks like this page doesn't exist!");
     res.status(404).render('page-not-found');
 });
 
 app.use((err, req, res, next) => {
+    err.status = err.status || 500;
+    err.message = err.message || "Server error";
     if (err.status === 404) {
         res.status(404).render("page-not-found", { err });
     } else {
         err.message = err.message || `Oops! It looks like something went wrong on the server.`
+        console.log("It looks like this page doesn't exist!");
         res.status(err.status || 500).render('error', { err });
     }
 });
