@@ -8,6 +8,7 @@ html(lang="en" dir="ltr")
     link(href='https://fonts.googleapis.com/css?family=Merriweather:300,400,400i,700,800', rel='stylesheet')
     link(rel='stylesheet', href='/css/normalize.css')
     link(rel='stylesheet', href='/css/styles.css')
+    link(rel='stylesheet', href='/css/ECstyles.css')
 
   body
     #my-info.sidebar
@@ -17,13 +18,10 @@ html(lang="en" dir="ltr")
           img.thumbnail(src='/images/headshot.jpg', alt='')
         .dev-intro-box
 
-          //- Replace with your name
           h5 James Fleming
 
-          //- Replace with description of who you are, what you do, and why you are so awesome
-          p Description
+          p Thank you for being here! This is my portfolio where you can find all of my work. I come from a marketing background and found my passion for web dev through working with development teams in different projects. It has been quite the journey and I have come a long way with my abilities. My mission is to become the best full stack developer I can possibly be! I'd love to work towards this goal with your company so please, feel free to look around and don't hesitate to reach out if you have any questions!
 
-          //- Add path from your '/about' route handler to the href below
           a(href='/about') Learn More &rarr;
 
     .wrapper
@@ -31,7 +29,6 @@ html(lang="en" dir="ltr")
         .header-info-box
           button#menu-icon.menu-icon(type='button' data-toggle='my-info')
 
-          //- Replace with your name — this is for the mobile layout
           span James Fleming
 
       block content
