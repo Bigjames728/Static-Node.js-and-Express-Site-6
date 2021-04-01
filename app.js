@@ -5,6 +5,7 @@
  */
 
 const express = require("express");
+const favicon = require('serve-favicon');
 const path = require("path");
 const data = require("./data.json");
 const projects = data.data.projects;
@@ -23,6 +24,7 @@ const port = process.env.PORT || "3000";
 
 app.set("view engine", "pug");
 app.use(express.static('public'));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 /**
  * Routes Definitions
