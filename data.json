@@ -12,12 +12,12 @@
             },
             {
                 "id": "1",
-                "project_name": "Data Pagination and Filtering",
-                "description": "Used JavaScript to display several 'pages' of student data that the user can easily navigate and view rather than looking at all students on one giant page.",
-                "technologies": ["JavaScript", "CSS", "HTML"],
-                "live_link": "https://bigjames728.github.io/Data-Pagination-and-Filtering-Project-unit-02/",
-                "github_link": "https://github.com/Bigjames728/Data-Pagination-and-Filtering-Project-unit-02",
-                "image_urls": ["/images/LPProject2.png", "/images/ExtraProject2.png"]
+                "project_name": "Fehr Law Website",
+                "description": "A website I created for a client includeing a contact us form and a map to their location.",
+                "technologies": ["Bootstrap", "CSS", "HTML", "PHP"],
+                "live_link": "http://fehrlaw.net/",
+                "github_link": "",
+                "image_urls": ["/images/FehrLawSite.png", "/images/FehrLawSiteFullPage.png"]
             },
             {
                 "id": "2",
@@ -45,8 +45,16 @@
                 "live_link": "https://bigjames728.github.io/Public-API-Request-Unit-5/",
                 "github_link": "https://github.com/Bigjames728/Public-API-Request-Unit-5",
                 "image_urls": ["/images/LPProject5.png", "/images/ExtraProject5.png"]
+            },
+            {
+                "id": "5",
+                "project_name": "Data Pagination and Filtering",
+                "description": "Used JavaScript to display several 'pages' of student data that the user can easily navigate and view rather than looking at all students on one giant page.",
+                "technologies": ["JavaScript", "CSS", "HTML"],
+                "live_link": "https://bigjames728.github.io/Data-Pagination-and-Filtering-Project-unit-02/",
+                "github_link": "https://github.com/Bigjames728/Data-Pagination-and-Filtering-Project-unit-02",
+                "image_urls": ["/images/LPProject2.png", "/images/ExtraProject2.png"]
             }
-
         ]
     }
 }
