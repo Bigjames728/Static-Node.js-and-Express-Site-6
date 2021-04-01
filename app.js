@@ -46,19 +46,20 @@ app.get("/projects/:id", (req, res) => {
  */
 
 app.use((req, res, next) => {
-    console.log("It looks like this page doesn't exist!");
-    res.status(404).render('page-not-found');
+    err = new Error('Not found');
+    err.status = 404;
+    err.message = 'Not found';
+    next(err);
 });
 
 app.use((err, req, res, next) => {
-    err.status = err.status || 500;
-    err.message = err.message || "Server error";
-    if (err.status === 404) {
-        res.status(404).render("page-not-found", { err });
+    res.status = err.status || 500;
+    res.message = err.message || "Server error";
+    if (res.status === 404) {
+        res.render("page-not-found", { err: err });
     } else {
-        err.message = err.message || `Oops! It looks like something went wrong on the server.`
-        console.log("It looks like this page doesn't exist!");
-        res.status(err.status || 500).render('error', { err });
+        res.render('error', { err: err });
+        console.log(err.status, err.message);
     }
 });
 
