@@ -1,14 +1,10 @@
 extends layout 
 
 block content 
-    h1 There was a problem with the server 
-    h2= err.status 
     nav.nav
-      a(href='/')
-        span &larr;
-        |  Back
-    h2= err.stack
-    h2= err.message 
+        a(href='/')
+            span &larr;
+            |  Back
 
-    
-
+    h1= err.message 
+    h2= err.status 

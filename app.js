@@ -8,6 +8,7 @@ const express = require("express");
 const favicon = require('serve-favicon');
 const path = require("path");
 const data = require("./data.json");
+const { exists } = require("fs");
 const projects = data.data.projects;
 
 
@@ -38,30 +39,57 @@ app.get("/about", (req, res) => {
     res.render("about");
 });
 
-app.get("/projects/:id", (req, res) => {
+app.get("/projects/:id", (req, res, next) => {
     const project = projects[req.params.id];
-    res.render('project', { project });
+    if (project) {
+        res.render('project', { project });
+    } else {
+        next();
+    }
 });
 
 /**
  * Error Handlers
  */
 
+/* 404 handler to catch undefined or non-existent route requests */
 app.use((req, res, next) => {
-    err = new Error('Not found');
-    err.status = 404;
-    err.message = 'Not found';
-    next(err);
+    console.log('404 error handler called');
+    const err = new Error();
+        err.status = 404;
+        err.message = "Looks like the project you requested doesn't exists."
+        console.log(err.message);
+        next(err);
+
+    /* TODO 1: Send a response to the client
+        -Set the response status to 404
+        -Render the 'page-not-found' view
+    */
+    res.status(404).render('page-not-found');
 });
 
+/* Global error handler */
+
 app.use((err, req, res, next) => {
-    res.status = err.status || 500;
-    res.message = err.message || "Server error";
-    if (res.status === 404) {
-        res.render("page-not-found", { err: err });
+    
+    if (err) {
+        console.log('Global error handler called', err);
+    }
+    
+    /* TODO 2: Handle errors caught by your route handlers
+        -If the error status is 404:
+            * Set the response status to 404
+            * Render the 'page-not-found' view and pass the error object to the view
+        - Else:
+            * Set the error message to the given message, or specify a general, default error message
+            * Set response status to the given error status OR, set it to 500 by default if no
+            * Render the 'error' view, passing it the error object
+    */
+    if (err.status === 404) {
+        res.status(404).render('page-not-found', { err });
     } else {
-        res.render('error', { err: err });
-        console.log(err.status, err.message);
+        err.message = err.message || 'Oops! It looks like something went wrong on the server.';
+        res.status(err.status || 500).render('error', { err })
     }
 });
 
