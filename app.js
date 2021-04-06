@@ -44,7 +44,10 @@ app.get("/projects/:id", (req, res, next) => {
     if (project) {
         res.render('project', { project });
     } else {
-        next();
+        const err = new Error();
+        err.status = 404;
+        err.message = `Looks like the project you requested doesn't exist.`
+        next(err);
     }
 });
 
@@ -55,12 +58,7 @@ app.get("/projects/:id", (req, res, next) => {
 /* 404 handler to catch undefined or non-existent route requests */
 app.use((req, res, next) => {
     console.log('404 error handler called');
-    const err = new Error();
-        err.status = 404;
-        err.message = "Looks like the project you requested doesn't exists."
-        console.log(err.message);
-        next(err);
-
+    
     /* TODO 1: Send a response to the client
         -Set the response status to 404
         -Render the 'page-not-found' view
@@ -89,7 +87,7 @@ app.use((err, req, res, next) => {
         res.status(404).render('page-not-found', { err });
     } else {
         err.message = err.message || 'Oops! It looks like something went wrong on the server.';
-        res.status(err.status || 500).render('error', { err })
+        res.status(err.status || 500).render('error', { err });
     }
 });
 
