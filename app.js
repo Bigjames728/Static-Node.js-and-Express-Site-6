@@ -45,9 +45,10 @@ app.get("/projects/:id", (req, res, next) => {
         res.render('project', { project });
     } else {
         const err = new Error();
+        err.message = `Oops! It looks like this page doesn't exist.`;
         err.status = 404;
-        err.message = `Looks like the project you requested doesn't exist.`
-        next(err);
+        console.log(err.message);
+        res.render('page-not-found', { err });
     }
 });
 
@@ -63,10 +64,12 @@ app.use((req, res, next) => {
         -Set the response status to 404
         -Render the 'page-not-found' view
     */
-    res.status(404).render('page-not-found');
+    const err = new Error();
+    err.message = `It looks like this page doesn't exist.`
+    res.status(404).render('page-not-found', { err });
 });
 
-/* Global error handler */
+// /* Global error handler */
 
 app.use((err, req, res, next) => {
     
@@ -86,8 +89,9 @@ app.use((err, req, res, next) => {
     if (err.status === 404) {
         res.status(404).render('page-not-found', { err });
     } else {
-        err.message = err.message || 'Oops! It looks like something went wrong on the server.';
-        res.status(err.status || 500).render('error', { err });
+        err.message = 'Oops! It looks like something went wrong on the server.';
+        err.status = 500;
+        res.render('error', { err });
     }
 });
 
