@@ -54,7 +54,7 @@ app.get("/projects/:id", (req, res, next) => {
 
 /* 404 handler to catch undefined or non-existent route requests */
 app.use((req, res, next) => {
-    console.log('404 error handler called');
+
     const err = new Error();
     err.message = `Oops! It looks like this page doesn't exist.`;
     err.status = 404;
