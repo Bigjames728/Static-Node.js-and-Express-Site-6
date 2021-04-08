@@ -5,11 +5,13 @@
  */
 
 const express = require("express");
+const router = express.Router();
 const favicon = require('serve-favicon');
 const path = require("path");
 const data = require("./data.json");
 const { exists } = require("fs");
 const projects = data.data.projects;
+const projectRouter = require('./routes/index');
 
 
 /**
@@ -26,27 +28,18 @@ const port = process.env.PORT || "3000";
 app.set("view engine", "pug");
 app.use(express.static('public'));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(require('./routes'));
+
 
 /**
  * Routes Definitions
  */
 
-app.get("/", (req, res) => {
-    res.render("index", { projects });
-});
+app.use('/', projectRouter);
 
-app.get("/about", (req, res) => {
-    res.render("about");
-});
 
-app.get("/projects/:id", (req, res, next) => {
-    const project = projects[req.params.id];
-    if (project) {
-        res.render('project', { project });
-    } else {
-        res.status(404).render('page-not-found');
-    }
-});
+
+
 
 /**
  * Error Handlers
