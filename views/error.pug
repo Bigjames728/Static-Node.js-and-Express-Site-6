@@ -6,6 +6,6 @@ block content
             span &larr;
             |  Back
 
-    h1= err.message 
-    h2= err.status 
-    h2= err.stack
+    h1= `Server Error` 
+    h2= `Error status code: ${err.status} - Server Error`
+    h2=  err.message
