@@ -47,13 +47,14 @@ app.use('/', projectRouter);
 
 /* 404 handler to catch undefined or non-existent route requests */
 app.use((req, res, next) => {
-    console.log('404 error handler called');
+    
 
     /* TODO 1: Send a response to the client
         - Set the response status to 404
         - Render the 'page-not-found'view
     */
    res.status(404).render('page-not-found');
+   console.log("It looks like this page doesn't exist.")
     
 });
 
