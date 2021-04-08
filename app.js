@@ -37,10 +37,6 @@ app.use(require('./routes'));
 
 app.use('/', projectRouter);
 
-
-
-
-
 /**
  * Error Handlers
  */
