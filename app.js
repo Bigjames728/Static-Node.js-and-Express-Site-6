@@ -48,11 +48,6 @@ app.use('/', projectRouter);
 /* 404 handler to catch undefined or non-existent route requests */
 app.use((req, res, next) => {
     
-
-    /* TODO 1: Send a response to the client
-        - Set the response status to 404
-        - Render the 'page-not-found'view
-    */
    res.status(404).render('page-not-found');
    console.log("It looks like this page doesn't exist.")
     
@@ -66,15 +61,6 @@ app.use((err, req, res, next) => {
         console.log('Global error handler called', err);
     }
 
-    /* TODO 2: Handle errors caught by your route handlers
-        - If the error status is 404:
-            * Set the response status to 404
-            * Render the 'page-not-found' view and pass the error object to the view
-        - Else:
-            * Set the error message to the given message, or specify a general, defalut error message
-            * Set response status to the given error status OR, set it to 500 by default if no error status is set
-            * Render the 'error' view, passing it the error object
-    */
     if (err.status === 404) {
         res.status(404).render('page-not-found', { err });
     } else {
